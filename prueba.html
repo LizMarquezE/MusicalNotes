@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú Responsive sin Bootstrap</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #3A506B;
+      box-shadow: 0 0 5px #ccc;
+    }
+
+    .menu1 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: #3A506B;
+    }
+
+    .menu1 .logo img {
+      max-width: 150px;
+    }
+
+    /* Menú principal (desktop por defecto) */
+    .menu1 .menu {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    .menu1 .menu li {
+      position: relative;
+    }
+    .menu1 .menu li a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: block;
+      cursor: pointer;
+      user-select: none;
+    }
+    .menu1 .menu li a:hover {
+      background-color: #2e3f56;
+      border-radius: 5px;
+    }
+
+    /* Submenús ocultos por defecto */
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #3A506B;
+      list-style: none;
+      margin: 0;
+      padding: 5px 0;
+      min-width: 180px;
+      border-radius: 0 0 8px 8px;
+    }
+    .submenu li a {
+      color: white;
+      padding: 8px 20px;
+      white-space: nowrap;
+    }
+    /* Mostrar submenú cuando el li tiene .active */
+    .desplegable.active .submenu {
+      display: block;
+    }
+
+    /* Botón hamburguesa móvil oculto por defecto */
+    .menu-mobil {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .menu-mobil span {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 4px 0;
+    }
+
+    /* Responsive solo con max-width:768px */
+    @media (max-width: 768px) {
+      .menu1 {
+        flex-wrap: wrap;
+      }
+      .menu-mobil {
+        display: flex;
+      }
+      /* Ocultar menú desktop */
+      .menu1 .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+      }
+      /* Mostrar menú al activar */
+      .menu1 .menu.active {
+        display: flex;
+      }
+      .menu1 .menu li {
+        width: 100%;
+      }
+      /* Submenus en móvil relative */
+      .submenu {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="menu1">
+      <div class="logo">
+        <img src="img/descargar2.png" alt="Logo">
+      </div>
+      <div class="menu-mobil" id="menu-mobil">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li class="desplegable">
+          <a href="#">Cuerdas <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="submenu">
+            <li><a href="#">Violín</a></li>
+            <li><a href="#">Viola</a></li>
+            <li><a href="#">Cello</a></li>
+            <li><a href="#">Contrabajo</a></li>
+            <li><a href="#">Guitarra</a></li>
+          </ul>
+        </li>
+        <li class="desplegable">
+          <a href="#">Vientos <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="submenu">
+            <li><a href="#">Clarinete</a></li>
+            <li><a href="#">Trompeta</a></li>
+            <li><a href="#">Saxofón</a></li>
+            <li><a href="#">Flauta</a></li>
+            <li><a href="#">Corno Francés</a></li>
+          </ul>
+        </li>
+        <li class="desplegable">
+          <a href="#">Pianos y teclados <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="submenu">
+            <li><a href="#">Acordeón</a></li>
+            <li><a href="#">Pianos</a></li>
+            <li><a href="#">Sintetizador</a></li>
+            <li><a href="#">Teclados</a></li>
+          </ul>
+        </li>
+        <li class="desplegable">
+          <a href="#">Percusión <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="submenu">
+            <li><a href="#">Timbales</a></li>
+            <li><a href="#">Platillos</a></li>
+            <li><a href="#">Batería</a></li>
+            <li><a href="#">Tarolas</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Accesorios</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <script>
+    const menuBtn = document.getElementById('menu-mobil');
+    const menu = document.getElementById('menu');
+    const desplegables = document.querySelectorAll('.desplegable > a');
+
+    // Toggle menú principal en móvil
+    menuBtn.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+
+    // Toggle submenús al hacer clic (desktop y móvil)
+    desplegables.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const parent = link.parentElement;
+        // Cerrar otros submenús
+        document.querySelectorAll('.desplegable').forEach(item => {
+          if (item !== parent) item.classList.remove('active');
+        });
+        // Alternar el actual
+        parent.classList.toggle('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
