@@ -254,6 +254,51 @@ header {
     width: 150px;
 }
 
+/* BENEFICIOS */
+.sbeneficios {
+    padding: 60px 20px;
+    background: #00A9A5;
+    margin-bottom: 20px;
+}
+
+.beneficios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.beneficio {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    box-sizing: border-box;
+    align-items: flex-start;
+}
+
+.beneficio i {
+    font-size: 2rem;
+    color: #3A506B;
+    margin-top: 3px;
+}
+
+.beneficio h4 {
+    margin: 0;
+    font-size: 1.05rem;
+    color: #3A506B;
+    font-weight: 700;
+}
+
+.beneficio p {
+    margin: 0.3rem 0 0;
+    font-size: 0.9rem;
+    color: rgba(58, 80, 107, 0.85);
+}
+
 /* DESTACADOS */
 .destacado {
     padding: 60px 20px;
@@ -421,6 +466,20 @@ header {
     .productD {
         grid-template-columns: 1fr;
         padding: 10px;
+    }
+
+    .beneficios {
+        grid-template-columns: 1fr;
+    }
+
+    .beneficio {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .beneficio i {
+        margin-top: 0;
     }
 
     .subfooter {
