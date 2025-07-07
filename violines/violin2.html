@@ -1,65 +1,166 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/estilos.css">
+  <title>Violín Di Luthier estudiante 3/4</title>
 </head>
-<style>
-    /* Carrusel alineado a la izquierda y con ancho del 33% del viewport */
-    #carouselExampleIndicators {
-        width: 33vw;
-        float: left; /* Lo alinea a la izquierda */
-    }
 
-    .carousel-item {
-        height: 400px;
-        background-color: black; /* Fondo para ver mejor si la imagen no llena todo */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+<body class="prod-cat">
+  <header>
+    <nav class="menu1">
+      <div class="logo">
+        <img src="../img/descargar2.png" alt="Logo">
+      </div>
+      <div class="menu-mobil" id="menu-mobil">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="menu" id="menu">
+        <li><a href="../index.html">Inicio</a></li>
+        <li class="desplegable">
+          <a href="#">Cuerdas <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="submenu">
+            <li><a href="../violin.html">Violín</a></li>
+            <li><a href="../viola.html">Viola</a></li>
+            <li><a href="../cello.html">Cello</a></li>
+            <li><a href="../guitarra.html">Guitarra</a></li>
+          </ul>
+        </li>
+        <li class="desplegable">
+          <a href="#">Vientos <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="submenu">
+            <li><a href="../clarinete.html">Clarinete</a></li>
+            <li><a href="../trompeta.html">Trompeta</a></li>
+            <li><a href="../saxofon.html">Saxofón</a></li>
+            <li><a href="../flauta.html">Flauta</a></li>
+          </ul>
+        </li>
+        <li class="desplegable">
+          <a href="#">Pianos y teclados <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="submenu">
+            <li><a href="../acordeon.html">Acordeón</a></li>
+            <li><a href="../piano.html">Pianos</a></li>
+            <li><a href="../sintetizador.html">Sintetizador</a></li>
+            <li><a href="../teclado.html">Teclados</a></li>
+          </ul>
+        </li>
+        <li class="desplegable">
+          <a href="#">Percusión <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="submenu">
+            <li><a href="../timbal.html">Timbales</a></li>
+            <li><a href="../platillo.html">Platillos</a></li>
+            <li><a href="../bateria.html">Batería</a></li>
+          </ul>
+        </li>
+        <li><a href="../contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    .carousel-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain; /* Mostrará toda la imagen sin recortarla */
-        filter: brightness(0.9);
-    }
-</style>
-
-<body>
-    <div id="carouselExampleIndicators" class="carousel slide">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-        </div>
-        <div class="carousel-inner">
+  <section class="catalogo">
+            <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="../violin.html">Violines</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Violín Di Luthier estudiante 3/4</li>
+          </ol>
+        </nav>
+    <div class="producto-container">
+      <div class="galeria">
+        <div id="carruselFotos" class="carousel slide">
+          <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="../img/v-djersen3.png" alt="Imagen 1">
+              <img src="../img/di-luthier.png" alt="Foto 1">
             </div>
             <div class="carousel-item">
-                <img src="../img/v-djersen3solo.png" alt="Imagen 2">
+              <img src="../img/di-luthier-estu.png" alt="Foto 2">
             </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+          </div>
+          <button class="carousel-control-prev custom-control" type="button" data-bs-target="#carruselFotos"
             data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next custom-control" type="button" data-bs-target="#carruselFotos"
             data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+
+        <div class="miniaturas mt-3">
+          <img src="../img/di-luthier.png" class="active-thumb" onclick="cambiarSlide(0)">
+          <img src="../img/di-luthier-estu.png" onclick="cambiarSlide(1)">
+        </div>
+      </div>
+
+      <div class="info-producto">
+
+        <div>
+          <h1>Violín Di Luthier estudiante 3/4</h1>
+          <p class="precio">S/459.00</p>
+          <p class="precio-efectivo">Efectivo/Transferencia: S/413.00</p>
+          <p class="precio-tarjeta"><strong>Tarjeta de crédito/débito:</strong> S/459.00</p>
+          <p class="info-text"><strong>Violín Di Luthier 3/4 para estudiante.</strong> Ideal para quienes se inician en la música. Buena calidad de construcción y sonido adecuado para nivel básico.</p>
+          <p class="info-text">Incluye estuche, arco y colofonia.</p>
+        </div>
+        <a href="https://wa.me/51984195724?text=Hola, quiero más información del Violín Di Luthier estudiante 3/4" target="_blank"
+          class="boton-whatsapp">
+          <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+        </a>
+      </div>
     </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <div class="in-texto">
+      <div class="in-texto2">
+        <h2>Violín Di Luthier estudiante 3/4 – Ideal para nivel básico</h2>
+        <hr>
+        <p>El violín Di Luthier estudiante 3/4 es una excelente alternativa para quienes inician su camino musical. Fabricado con materiales seleccionados, este modelo brinda una buena resonancia y facilidad de ejecución para principiantes.</p>
+        <p>Su tamaño 3/4 lo hace adecuado para jóvenes músicos, ofreciendo una correcta postura y comodidad en el aprendizaje. El violín cuenta con acabados sencillos pero bien logrados, que garantizan una experiencia positiva desde el primer uso.</p>
+        <p>Incluye todo lo necesario para comenzar a tocar: arco, estuche liviano tipo mochila y resina. Acompañado de garantía y asesoría de MusicalNotes.</p>
+        <h2>Características del Violín Di Luthier estudiante 3/4:</h2>
+        <hr>
+        <ul>
+          <li>Tamaño: 3/4 – ideal para estudiantes</li>
+          <li>Cuerpo con buen acabado en madera contrachapada</li>
+          <li>Sonido aceptable para nivel inicial</li>
+          <li>Incluye estuche, arco y colofonia</li>
+          <li>Buena relación calidad/precio</li>
+          <li>Recomendado para clases y prácticas escolares</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="productosS">
+    <h2>PRODUCTOS SIMILARES</h2>
+    <hr>
+    <div class="similares">
+      <div class="similar">
+        <img src="img/vi-cremona.png">
+        <h3>Violín Cremona SV-150</h3>
+        <p class="precio">S/ 849.00</p>
+      </div>
+      <div class="similar">
+        <img src="img/vi-stradi.webp">
+        <h3>Violín Stradivari Student 4/4</h3>
+        <p class="precio">S/ 1,099.00</p>
+      </div>
+      <div class="similar">
+        <img src="img/v-djersen3solo.png">
+        <h3>Violín Djersen MV-02 3/4</h3>
+        <p class="precio">S/ 220.00</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/script.js"></script>
+  <script src="../js/carrusel.js"></script>
 </body>
-
-
 
 </html>

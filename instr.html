@@ -1,321 +1,216 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sevilla SE1800</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #FFF8F2;
-            color: #3A506B;
-        }
+  <meta charset="UTF-8">
+  <title>Productos Similares</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #FFF8F2;
+      font-family: 'Montserrat', sans-serif;
+    }
 
-        .content-instrumento {
-            width: 75%;
-            margin: auto;
-            display: flex;
-            flex-wrap: wrap;
-            padding: 2rem;
-            gap: 2rem;
-            justify-content: center;
-        }
+    .productosS {
+      padding: 2rem;
+      text-align: center;
+    }
 
-        .instrument-img {
-            width: 40%;
-            position: relative;
-        }
+    .productosS h2 {
+      color: #00A9A5;
+      font-size: 2rem;
+    }
 
-        .carrusel {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #ffffff;
-            height: 500px;
-        }
+    .productosS hr {
+      width: 60px;
+      border: 2px solid #FFC94A;
+      margin: 1rem auto;
+    }
 
-        .carrusel img {
-            height: 100%;
-            width: auto;
-            max-width: 100%;
-            display: none;
-            transition: opacity 0.3s ease-in-out;
-            object-fit: contain;
-        }
+    .carousel-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .carrusel img.active {
-            display: block;
-        }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
 
-        .carrusel:hover .carrusel-controls {
-            opacity: 1;
-        }
+    .producto-item {
+      flex: 0 0 33.3333%;
+      box-sizing: border-box;
+      padding: 1rem;
+      text-align: center;
+    }
 
-        .carrusel-controls {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
-        }
+    .producto-inner {
+      background-color: #fff;
+      border: 2px solid #FF6B6B;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-        .carrusel-controls button {
-            pointer-events: all;
-            background-color: rgba(158, 157, 157, 0.4);
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            padding: 20px;
-            cursor: pointer;
-            border-radius: 50%;
-        }
+    .producto-inner img {
+      width: 100%;
+      max-height: 220px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+      border-radius: 8px;
+    }
 
-        .comprar {
-            width: 35%;
-        }
+    .producto-inner h3 {
+      font-size: 1rem;
+      color: #3A506B;
+      margin-top: 0.5rem;
+    }
 
-        .comprar h1 {
-            color: #3A506B;
-            font-size: 30px;
-            text-align: center;
-        }
+    .precio {
+      color: #FF6B6B;
+      font-weight: bold;
+      font-size: 1rem;
+    }
 
-        .comprar .precio {
-            font-size: 1.5rem;
-            color: #FF6B6B;
-            font-weight: bold;
-        }
+    .btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #00A9A5;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 1;
+    }
 
-        .comprar .metodo,
-        .comprar .descripcion {
-            font-size: 16px;
-            text-align: justify;
-        }
+    .btn:hover {
+      background: #00807c;
+    }
 
-        .comprar .descripcion {
-            margin: 1rem 0;
-        }
+.btn.prev {
+  left: 10px;
+}
 
-        .comprar .metodo {
-            font-weight: bold;
-        }
+.btn.next {
+  right: 10px;
+}
 
-        .boton-comprar {
-            width: 90%;
-            text-decoration: none;
-            font-size: 18px;
-            background-color: #00A9A5;
-            color: white;
-            padding: 20px;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            text-align: center;
-            margin-top: 20px;
-            display: block;
-        }
+    /* Responsive */
+    @media (max-width: 992px) {
+      .producto-item {
+        flex: 0 0 50%;
+      }
+    }
 
-
-        .in-texto {
-            max-width: 1000px;
-            margin: 0 auto 2rem;
-            padding: 0 2rem;
-        }
-
-        .in-texto h2 {
-            margin-top: 2rem;
-            color: #3A506B;
-        }
-
-        .in-texto ul,
-        p {
-            font-size: 16px;
-        }
-
-        .in-texto li {
-            margin-bottom: 10px;
-        }
-
-        .productosS {
-            padding: 2rem;
-            border: 1px solid;
-        }
-
-        .productosS h2 {
-            font-size: 1.5rem;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        .grid-similares {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .similar {
-            background: #fff;
-            padding: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            flex: 1 1 250px;
-            max-width: 300px;
-            text-align: center;
-        }
-
-        .similar img {
-            width: 100%;
-            height: auto;
-        }
-
-        .similar h3 {
-            font-size: 1rem;
-        }
-
-        .in-texto hr,
-        .productosS hr {
-            border: none;
-            height: 2px;
-            background-color: #3A506B;
-            margin: 1rem 0;
-        }
-
-        @media (max-width: 768px) {
-            .content-instrumento {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .instrument-img,
-            .comprar {
-                width: 90%;
-            }
-        }
-    </style>
+    @media (max-width: 600px) {
+      .producto-item {
+        flex: 0 0 100%;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <section class="content-instrumento">
-        <div class="instrument-img">
-            <div class="carrusel">
-                <img src="img/sevilla-300x300.jpg" class="active">
-                <img src="img/violin-sevilla.jpg">
-                <div class="carrusel-controls">
-                    <button onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
-                    <button onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
-                </div>
-            </div>
+
+  <section class="productosS">
+    <h2>PRODUCTOS SIMILARES</h2>
+    <hr>
+
+    <div class="carousel-container">
+      <button class="btn prev">&#10094;</button>
+      <div class="carousel-track">
+
+        <div class="producto-item">
+          <div class="producto-inner">
+            <img src="img/v-djersen3solo.png" alt="">
+            <h3>Guitarra EKO Vintage V100 AFD</h3>
+            <p class="precio">S/ 1,199.00</p>
+          </div>
         </div>
-        <div class="comprar">
-            <h1>Sevilla SE1800 – Violín original (fino acabado)</h1>
-            <p class="precio">S/549.00</p>
-            <p class="metodo" style="color :#b02929;">Efectivo/Transferencia: S/519.00</p>
-            <hr>
-            <p class="metodo">Tarjeta de crédito/débito: S/549.00</p>
-            <hr>
-            <div class="descripcion">
-                <p>
-                    <b>Violín de 3/4 Sevilla SE-1800.</b> Tienda oficial MusicalNotes. Garantía y seguridad. Sonido rico
-                    y
-                    claro.
-                    Diseño ergonómico y cómodo.
-                </p>
-                <p> Compra ahora y asegura tu inversión.</p>
-            </div>
-            <a href="https://wa.me/51984195724?text=Hola,quiero más información del violín Sevilla SE-1800"
-                target="_blank" class="boton-comprar">
-                <i class="fa-brands fa-whatsapp" style="margin-right: 8px; font-size: 24px;"></i>Consultar por WhatsApp
-            </a>
 
-
+        <div class="producto-item">
+          <div class="producto-inner">
+            <img src="img/vi-cremona.png" alt="">
+            <h3>Guitarra Yamaha Pacifica</h3>
+            <p class="precio">S/ 1,499.00</p>
+          </div>
         </div>
-    </section>
 
-    <section class="in-texto">
-        <h2>Sevilla SE-1800 – Violín Original Mejor Calidad Fino Acabado</h2>
-        <hr>
-        <p>
-            El violín de 3/4 Sevilla SE-1800 es una excelente opción para jóvenes violinistas que buscan un instrumento
-            de alta calidad y sonido rico. Con su cuerpo de madera de álamo y tapa de picea, este violín ofrece un
-            sonido claro y potente.
-        </p>
-        <p>
-            El SE-1800 cuenta con un diseño ergonómico y cómodo, lo que lo hace ideal para estudiantes de violín que
-            están comenzando a desarrollar su técnica. Su mango de ébano y clavijas de latón ofrecen una sensación suave
-            y cómoda al tocar.
-        </p>
-        <p>
-            En MusicalNotes, estamos comprometidos con brindarte la mejor calidad y servicio. Por eso, ofrecemos
-            garantía
-            y seguridad en tu compra. Nuestro equipo de expertos está listo para ayudarte a encontrar el instrumento
-            perfecto para tus necesidades.
-        </p>
-
-        <h2>
-            Características del violín Sevilla SE-1800:
-        </h2>
-        <hr>
-        <ul>
-            <li>Violín Importado Sevilla (Original)</li>
-            <li>Fabricado con materiales de primera calidad.</li>
-            <li>Excelente sonido.</li>
-            <li>Ideal para estudiantes de la carrera de música.</li>
-            <li>Fino acabado de lujo.</li>
-        </ul>
-    </section>
-
-    <section class="productosS">
-        <h2>PRODUCTOS SIMILARES</h2>
-        <hr>
-        <div class="grid-similares">
-            <div class="similar">
-                <img src="img/v-djersen3solo.png">
-                <h3>Guitarra EKO Vintage V100 AFD</h3>
-                <p class="precio">S/ 1,199.00</p>
-            </div>
-            <div class="similar">
-                <img src="img/vi-cremona.png">
-                <h3>Guitarra Yamaha Pacifica</h3>
-                <p class="precio">S/ 1,499.00</p>
-            </div>
-            <div class="similar">
-                <img src="img/vi-stradi.webp">
-                <h3>Guitarra Ibanez GRX70QA</h3>
-                <p class="precio">S/ 1,099.00</p>
-            </div>
+        <div class="producto-item">
+          <div class="producto-inner">
+            <img src="img/vi-stradi.webp" alt="">
+            <h3>Guitarra Ibanez GRX70QA</h3>
+            <p class="precio">S/ 1,099.00</p>
+          </div>
         </div>
-    </section>
 
-    <script>
-        const imgs = document.querySelectorAll('.carrusel img');
-        let currentIndex = 0;
+        <div class="producto-item">
+          <div class="producto-inner">
+            <img src="img/v-djersen3solo.png" alt="">
+            <h3>Guitarra Epiphone Les Paul</h3>
+            <p class="precio">S/ 1,399.00</p>
+          </div>
+        </div>
 
-        function showSlide(index) {
-            imgs.forEach(img => img.classList.remove('active'));
-            imgs[index].classList.add('active');
-        }
+        <div class="producto-item">
+          <div class="producto-inner">
+            <img src="img/vi-cremona.png" alt="">
+            <h3>Guitarra Fender Stratocaster</h3>
+            <p class="precio">S/ 1,999.00</p>
+          </div>
+        </div>
 
-        function moveSlide(step) {
-            currentIndex += step;
-            if (currentIndex < 0) currentIndex = imgs.length - 1;
-            if (currentIndex >= imgs.length) currentIndex = 0;
-            showSlide(currentIndex);
-        }
-    </script>
+        <div class="producto-item">
+          <div class="producto-inner">
+            <img src="img/vi-stradi.webp" alt="">
+            <h3>Guitarra Cort X100</h3>
+            <p class="precio">S/ 849.00</p>
+          </div>
+        </div>
+
+      </div>
+      <button class="btn next">&#10095;</button>
+    </div>
+  </section>
+
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const nextBtn = document.querySelector('.btn.next');
+    const prevBtn = document.querySelector('.btn.prev');
+
+    let index = 0;
+
+    function updateCarousel() {
+      const itemWidth = document.querySelector('.producto-item').offsetWidth;
+      const visibleItems = Math.floor(document.querySelector('.carousel-container').offsetWidth / itemWidth);
+      const totalItems = document.querySelectorAll('.producto-item').length;
+      const maxIndex = totalItems - visibleItems;
+
+      if (index < 0) index = 0;
+      if (index > maxIndex) index = maxIndex;
+
+      track.style.transform = `translateX(-${index * itemWidth}px)`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      index++;
+      updateCarousel();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      index--;
+      updateCarousel();
+    });
+
+    window.addEventListener('resize', updateCarousel);
+    window.addEventListener('load', updateCarousel);
+  </script>
+
 </body>
-
 </html>
