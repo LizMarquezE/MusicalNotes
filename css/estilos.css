@@ -347,8 +347,14 @@ header {
     margin: 10px 0;
 }
 
-.productD p {
-    color: #00A9A5;
+.precio-anterior {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.precio-actual {
+    font-size: 20px;
+    color: #e63946;
     font-weight: bold;
 }
 
@@ -364,17 +370,17 @@ header {
 }
 
 .productD button:hover {
-    background-color: #00A9A5;
+    background: #00A9A5;
 }
 
 .etiqueta {
     position: absolute;
     top: 10px;
     left: 10px;
-    background-color: #d40000;
+    background: #d40000;
     color: white;
     font-weight: bold;
-    font-size: 0.75rem;
+    font-size: 12px;
     padding: 5px 15px;
     border-radius: 8px 0 8px 0;
     z-index: 2;
@@ -465,16 +471,18 @@ header {
     }
 
     .cat {
-        flex-direction: column;
-        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        justify-items: center
     }
 
     .categoria {
-        width: 80%;
+        width: 100%
     }
 
     .productD {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         padding: 10px;
     }
 
@@ -953,6 +961,79 @@ header {
 
 .breadcrumb-item a:hover {
     color: #FFC94A;
+}
+
+.relacionados {
+    padding: 40px 20px;
+    background: #008f8a;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.relacionados h2 {
+    color: #ffffff;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.p-relacionado {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.re-prod {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+    transition: all 0.3s ease;
+    height: 320px;
+}
+
+.re-prod:hover {
+    height: 360px;
+    /* Se expande al hacer hover */
+}
+
+.re-prod img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.re-prod h3 {
+    font-size: 1rem;
+    color: #3A506B;
+    margin-bottom: 5px;
+}
+
+.re-prod .re-precio {
+    color: #00A9A5;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.b-re {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #FF6B6B;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.re-prod:hover .b-re {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media (max-width: 768px) {
