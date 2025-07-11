@@ -27,24 +27,22 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// //bloquear click derecho
-// document.addEventListener('contextmenu', function (e) {
-//   e.preventDefault();
-//   alert("Click derecho bloqueado")
-// });
-// //bloqueo de la combinacion 
-// document.addEventListener('keydown', function (e) {
-//   if (e.ctrlKey && e.key === 'c') {
-//     e.preventDefault();
-//     alert("Presionaste la tecla Ctrl + c")
-//   }
+//bloquear click derecho
+document.addEventListener('contextmenu', function (e) {
+  e.preventDefault();
+  
+});
+//bloqueo de la combinacion 
+document.addEventListener('keydown', function (e) {
+  if (e.ctrlKey && e.key === 'c') {
+    e.preventDefault();
+  }
 
-// });
+});
 
-// document.addEventListener('keydown', function (event) {
-//   if (event.key === 'f12' || event.keyCode === 123) {
-//     event.preventDefault();
-//     alert("Presionaste la tecla f12")
-//   }
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'f12' || event.keyCode === 123) {
+    event.preventDefault();
+  }
 
-// });
+});
