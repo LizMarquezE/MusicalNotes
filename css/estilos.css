@@ -214,6 +214,10 @@ header {
     text-align: center;
 }
 
+.categorias a {
+    text-decoration: none;
+}
+
 .categorias h2 {
     color: #FF6B6B;
     margin-bottom: 30px;
@@ -465,6 +469,15 @@ header {
     margin-top: 15px;
 }
 
+.pie1 {
+    width: 95%;
+    margin: auto;
+    padding: 15px;
+}
+.pie1 p {
+    font-size: 16px;
+    margin-top: 15px;
+}
 @media(max-width: 768px) {
     .carousel-item {
         height: 300px;
